@@ -18,9 +18,28 @@ window.onload = () => {
     }
 }
 
+function theadClick() {
+    var field = this.innerHTML.toLowerCase();
+    if(typeof dataout[0][field] === "number")
+        dataout.sort(sort_by(field, parseInt));
+    else
+        dataout.sort(sort_by(field, function(a){return a.toUpperCase()}));
+    createTable(dataout);
+}
+
+var sort_by = function(field, primer){
+    var key = primer ? 
+        function(x) {return primer(x[field])} : 
+        function(x) {return x[field]};
+ 
+    return function (a, b) {
+        return a = key(a), b = key(b), ((a > b) - (b > a));
+      } 
+ }
+
 const createTable = (a) => {
     // Check if argument is array og single object
-    var single = a.length == undefined ? true : false;
+    var single = !Array.isArray(a);
     
     // Find table node and clear the content of it
     const myNode = document.getElementById("table");
@@ -36,6 +55,7 @@ const createTable = (a) => {
         var cell = document.createElement("th");
         var name = Object.keys(single ? a : a[0])[i]
         cell.innerHTML = name[0].toUpperCase() + name.substring(1);
+        cell.onclick = theadClick;
         header.appendChild(cell);
     }
 
@@ -51,8 +71,9 @@ const createTable = (a) => {
     }
 }
 
+var dataout;
+
 const fetchUrl = async(url) => {
-    var dataout;
     await fetch(url)
     .then(res => res.json())
     .then(data => {

@@ -24,3 +24,7 @@ footer {
 .alert {
     display: none;
 }
+
+thead th {
+    cursor: pointer;
+}
