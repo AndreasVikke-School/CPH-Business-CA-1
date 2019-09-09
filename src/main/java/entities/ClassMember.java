@@ -9,7 +9,7 @@ import javax.persistence.NamedQuery;
 
 /**
  *
- * @author andreas
+ * @author Martin
  */
 @Entity
 @NamedQuery(name = "ClassMember.deleteAllRows", query = "DELETE from ClassMember")

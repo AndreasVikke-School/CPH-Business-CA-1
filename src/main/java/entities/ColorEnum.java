@@ -2,7 +2,7 @@ package entities;
 
 /**
  *
- * @author andreas
+ * @author Martin
  */
 public enum ColorEnum {
     RED, YELLOW, GREEN

@@ -1,6 +1,8 @@
 package facades;
 
+import dto.ClassMemberDTO;
 import entities.ClassMember;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -23,7 +25,7 @@ public class ClassMemberFacade {
      * @param _emf
      * @return an instance of this facade class.
      */
-    public static ClassMemberFacade getMemberFacade(EntityManagerFactory _emf) {
+    public static ClassMemberFacade getClassMemberFacade(EntityManagerFactory _emf) {
         if (instance == null) {
             emf = _emf;
             instance = new ClassMemberFacade();
@@ -36,12 +38,12 @@ public class ClassMemberFacade {
     }
     
 
-    public ClassMember getMember(Long id) {
-        return getEntityManager().find(ClassMember.class, id);
+    public ClassMemberDTO getMember(long id) {
+        return new ClassMemberDTO(getEntityManager().find(ClassMember.class, id));
     }
 
-    public List<ClassMember> getMembers() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<ClassMemberDTO> getMembers() {
+        return getEntityManager().createQuery("SELECT new dto.ClassMemberDTO(cm) FROM ClassMember cm", ClassMemberDTO.class).getResultList();
     }
 
 }

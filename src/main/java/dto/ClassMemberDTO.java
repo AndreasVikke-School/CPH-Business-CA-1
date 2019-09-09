@@ -13,16 +13,16 @@ import java.util.Objects;
  *
  * @author Joe
  */
-public class MemberDTO {
+public class ClassMemberDTO {
     private long id;
     private String name;
     private String studentId;
     private ColorEnum color;
 
-    public MemberDTO() {
+    public ClassMemberDTO() {
     }
 
-    public MemberDTO(ClassMember member) {
+    public ClassMemberDTO(ClassMember member) {
         this.id = member.getId();
         this.name = member.getName();
         this.studentId = member.getStudentId();
@@ -66,7 +66,7 @@ public class MemberDTO {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final MemberDTO other = (MemberDTO) obj;
+        final ClassMemberDTO other = (ClassMemberDTO) obj;
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }

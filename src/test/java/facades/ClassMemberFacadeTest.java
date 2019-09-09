@@ -1,6 +1,6 @@
 package facades;
 
-import dto.MemberDTO;
+import dto.ClassMemberDTO;
 import entities.ColorEnum;
 import utils.EMF_Creator;
 import entities.ClassMember;
@@ -9,9 +9,9 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import utils.EMF_Creator.DbSelector;
 import utils.EMF_Creator.Strategy;
@@ -30,7 +30,7 @@ public class ClassMemberFacadeTest {
     @BeforeAll
     public static void setUpClassV2() {
        emf = EMF_Creator.createEntityManagerFactory(DbSelector.TEST,Strategy.DROP_AND_CREATE);
-       facade = ClassMemberFacade.getMemberFacade(emf);
+       facade = ClassMemberFacade.getClassMemberFacade(emf);
        
        members.add(new ClassMember("Martin Frederiksen", "cph-mf237", ColorEnum.RED));
        members.add(new ClassMember("Andreas Vikke", "cph-av105", ColorEnum.RED));
@@ -54,16 +54,15 @@ public class ClassMemberFacadeTest {
     }
     @Test
     public void testGetMember() {
-        assertEquals(2, 2);
+        assertEquals(new ClassMemberDTO(members.get(0)).getName(), facade.getMember(1L).getName());
     }
     
     @Test
-    @Disabled
     public void testGetMembers(){
-        List<MemberDTO> membersDTO = new ArrayList();
+        List<ClassMemberDTO> membersDTO = new ArrayList();
         for(ClassMember m : members) {
-            membersDTO.add(new MemberDTO(m));
+            membersDTO.add(new ClassMemberDTO(m));
         }
-        assertEquals(membersDTO, equals(facade.getMembers()));
+        assertTrue(facade.getMembers().equals(membersDTO));
     }
 }
