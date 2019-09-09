@@ -5,10 +5,11 @@
 <div class="container-fluid">
     <h1>Joke Page</h1>
 
+    <div id="alert" class="alert alert-danger" role="alert"></div>
     <form id="fetchJoke" class="container">
         <div class="row">
             <div class="col-sm">
-                <input type="text" class="form-control" id="jokeid" placeholder="Joke id">
+                <input type="number" class="form-control" id="jokeid" placeholder="Joke id">
             </div>
             <div class="col-sm" >
                 <button id="fetchJokeBtn" class="btn btn-dark">Fetch</button>
@@ -19,7 +20,7 @@
                 </span>
             </div>
         </div>
-
+        <br>
         <table class="table" id="table"></table>
     </form>
 </div>

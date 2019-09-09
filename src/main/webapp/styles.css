@@ -20,3 +20,7 @@ footer {
 .container-fluid h1 {
     text-align: center;
 }
+
+.alert {
+    display: none;
+}

@@ -5,7 +5,16 @@ window.onload = () => {
 
     document.getElementById("fetchJoke").onsubmit = async(e) => {
         e.preventDefault();
-        createTable(await fetchUrl("api/joke/" + document.getElementById("jokeid").value));
+        var id = document.getElementById("jokeid").value;
+        var alert = document.getElementById("alert");
+        alert.style.display = "none";
+
+        try {
+            createTable(await fetchUrl("api/joke/" + Number(id)));
+        } catch(ex) {
+            document.getElementById("alert").innerHTML = "Input is not a number";
+            alert.style.display = "block";
+        }
     }
 }
 
@@ -20,15 +29,14 @@ const createTable = (a) => {
     }
 
     // Create new header for table and insert new row
-    var header = document.getElementById("table").createTHead();
-    var headRow = header.insertRow(0);
+    var header = document.getElementById("table").createTHead().insertRow(0);
 
     // Interate over all the keys of the first object in the array, and add a new cell with the name
     for(i = 0; i < Object.keys(single ? a : a[0]).length; i++) {
         var cell = document.createElement("th");
         var name = Object.keys(single ? a : a[0])[i]
         cell.innerHTML = name[0].toUpperCase() + name.substring(1);
-        headRow.appendChild(cell);
+        header.appendChild(cell);
     }
 
     // Create new footer for table
