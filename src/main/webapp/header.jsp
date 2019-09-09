@@ -18,10 +18,10 @@
         <a class="nav-link" href="index.jsp">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="test1.jsp">Features</a>
+        <a class="nav-link" href="test1.jsp">Test Page</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
+        <a class="nav-link" href="jokepage.jsp">Joke Page</a>
       </li>
     </ul>
   </div>
