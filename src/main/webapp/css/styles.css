@@ -25,6 +25,9 @@ footer {
     display: none;
 }
 
+thead th {
+    cursor: pointer;
+}
 
 
 .indexContainer {

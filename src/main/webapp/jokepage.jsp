@@ -1,6 +1,6 @@
 <%@include file = "header.jsp" %>
 
-<script src="jokepage.js"></script>
+<script src="js/jokepage.js"></script>
 
 <div class="container-fluid">
     <h1>Joke Page</h1>
