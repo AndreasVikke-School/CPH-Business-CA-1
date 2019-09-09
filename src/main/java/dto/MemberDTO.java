@@ -6,7 +6,7 @@
 package dto;
 
 import entities.ColorEnum;
-import entities.Member;
+import entities.ClassMember;
 import java.util.Objects;
 
 /**
@@ -22,7 +22,7 @@ public class MemberDTO {
     public MemberDTO() {
     }
 
-    public MemberDTO(Member member) {
+    public MemberDTO(ClassMember member) {
         this.id = member.getId();
         this.name = member.getName();
         this.studentId = member.getStudentId();

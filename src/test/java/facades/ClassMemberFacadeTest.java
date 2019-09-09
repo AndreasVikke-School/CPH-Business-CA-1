@@ -3,7 +3,7 @@ package facades;
 import dto.MemberDTO;
 import entities.ColorEnum;
 import utils.EMF_Creator;
-import entities.Member;
+import entities.ClassMember;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -18,22 +18,22 @@ import utils.EMF_Creator.Strategy;
 
 //Uncomment the line below, to temporarily disable this test
 //@Disabled
-public class MemberFacadeTest {
+public class ClassMemberFacadeTest {
 
     private static EntityManagerFactory emf;
-    private static MemberFacade facade;
-    private static List<Member> members = new ArrayList();
+    private static ClassMemberFacade facade;
+    private static List<ClassMember> members = new ArrayList();
 
-    public MemberFacadeTest() {
+    public ClassMemberFacadeTest() {
     }
     
     @BeforeAll
     public static void setUpClassV2() {
        emf = EMF_Creator.createEntityManagerFactory(DbSelector.TEST,Strategy.DROP_AND_CREATE);
-       facade = MemberFacade.getMemberFacade(emf);
+       facade = ClassMemberFacade.getMemberFacade(emf);
        
-       members.add(new Member("Martin Frederiksen", "cph-mf237", ColorEnum.RED));
-       members.add(new Member("Andreas Vikke", "cph-av105", ColorEnum.RED));
+       members.add(new ClassMember("Martin Frederiksen", "cph-mf237", ColorEnum.RED));
+       members.add(new ClassMember("Andreas Vikke", "cph-av105", ColorEnum.RED));
     }
 
     // Setup the DataBase in a known state BEFORE EACH TEST
@@ -43,8 +43,8 @@ public class MemberFacadeTest {
         EntityManager em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
-            em.createNamedQuery("Member.deleteAllRows").executeUpdate();
-            for(Member m : members)
+            em.createNamedQuery("ClassMember.deleteAllRows").executeUpdate();
+            for(ClassMember m : members)
                 em.persist(m);
 
             em.getTransaction().commit();
@@ -53,7 +53,6 @@ public class MemberFacadeTest {
         }
     }
     @Test
-    @Disabled
     public void testGetMember() {
         assertEquals(2, 2);
     }
@@ -62,7 +61,7 @@ public class MemberFacadeTest {
     @Disabled
     public void testGetMembers(){
         List<MemberDTO> membersDTO = new ArrayList();
-        for(Member m : members) {
+        for(ClassMember m : members) {
             membersDTO.add(new MemberDTO(m));
         }
         assertEquals(membersDTO, equals(facade.getMembers()));

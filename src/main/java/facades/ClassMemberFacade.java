@@ -1,6 +1,6 @@
 package facades;
 
-import entities.Member;
+import entities.ClassMember;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -9,13 +9,13 @@ import javax.persistence.EntityManagerFactory;
  *
  * Rename Class to a relevant name Add add relevant facade methods
  */
-public class MemberFacade {
+public class ClassMemberFacade {
 
-    private static MemberFacade instance;
+    private static ClassMemberFacade instance;
     private static EntityManagerFactory emf;
     
     //Private Constructor to ensure Singleton
-    private MemberFacade() {}
+    private ClassMemberFacade() {}
     
     
     /**
@@ -23,10 +23,10 @@ public class MemberFacade {
      * @param _emf
      * @return an instance of this facade class.
      */
-    public static MemberFacade getMemberFacade(EntityManagerFactory _emf) {
+    public static ClassMemberFacade getMemberFacade(EntityManagerFactory _emf) {
         if (instance == null) {
             emf = _emf;
-            instance = new MemberFacade();
+            instance = new ClassMemberFacade();
         }
         return instance;
     }
@@ -36,11 +36,11 @@ public class MemberFacade {
     }
     
 
-    public Member getMember(Long id) {
-        return getEntityManager().find(Member.class, id);
+    public ClassMember getMember(Long id) {
+        return getEntityManager().find(ClassMember.class, id);
     }
 
-    public List<Member> getMembers() {
+    public List<ClassMember> getMembers() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
