@@ -120,3 +120,8 @@ $RECYCLE.BIN/
 
 # End of https://www.gitignore.io/api/java,linux,macos,maven,windows,netbeans
 
+/nbproject/
+**/src/main/resources/META-INF/
+
+
+src/main/resources/META-INF/persistence.xml
