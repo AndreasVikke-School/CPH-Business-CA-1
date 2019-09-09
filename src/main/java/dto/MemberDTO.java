@@ -1,43 +1,36 @@
-package entities;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package dto;
 
-import java.io.Serializable;
+import entities.ColorEnum;
+import entities.Member;
 import java.util.Objects;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQuery;
 
-
-@Entity
-@NamedQuery(name = "Member.deleteAllRows", query = "DELETE from Member")
-public class Member implements Serializable {
-
-    
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+/**
+ *
+ * @author Joe
+ */
+public class MemberDTO {
+    private long id;
     private String name;
     private String studentId;
     private ColorEnum color;
-    
-    public Member() {
+
+    public MemberDTO() {
     }
 
-    public Member(String name, String studentId, ColorEnum color) {
-        this.id = id;
-        this.name = name;
-        this.studentId = studentId;
-        this.color = color;
+    public MemberDTO(Member member) {
+        this.id = member.getId();
+        this.name = member.getName();
+        this.studentId = member.getStudentId();
+        this.color = member.getColor();
     }
-    
+
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -55,10 +48,10 @@ public class Member implements Serializable {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 61 * hash + Objects.hashCode(this.id);
-        hash = 61 * hash + Objects.hashCode(this.name);
-        hash = 61 * hash + Objects.hashCode(this.studentId);
-        hash = 61 * hash + Objects.hashCode(this.color);
+        hash = 59 * hash + Objects.hashCode(this.id);
+        hash = 59 * hash + Objects.hashCode(this.name);
+        hash = 59 * hash + Objects.hashCode(this.studentId);
+        hash = 59 * hash + Objects.hashCode(this.color);
         return hash;
     }
 
@@ -73,7 +66,7 @@ public class Member implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Member other = (Member) obj;
+        final MemberDTO other = (MemberDTO) obj;
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
@@ -88,5 +81,9 @@ public class Member implements Serializable {
         }
         return true;
     }
+    
+    
+
+    
     
 }

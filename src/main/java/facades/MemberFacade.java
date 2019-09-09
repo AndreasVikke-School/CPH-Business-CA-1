@@ -1,5 +1,7 @@
 package facades;
 
+import entities.Member;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
@@ -21,7 +23,7 @@ public class MemberFacade {
      * @param _emf
      * @return an instance of this facade class.
      */
-    public static MemberFacade getFacadeExample(EntityManagerFactory _emf) {
+    public static MemberFacade getMemberFacade(EntityManagerFactory _emf) {
         if (instance == null) {
             emf = _emf;
             instance = new MemberFacade();
@@ -33,16 +35,13 @@ public class MemberFacade {
         return emf.createEntityManager();
     }
     
-    //TODO Remove/Change this before use
-    public long getRenameMeCount(){
-        EntityManager em = emf.createEntityManager();
-        try{
-            long renameMeCount = (long)em.createQuery("SELECT COUNT(r) FROM RenameMe r").getSingleResult();
-            return renameMeCount;
-        }finally{  
-            em.close();
-        }
-        
+
+    public Member getMember(Long id) {
+        return getEntityManager().find(Member.class, id);
+    }
+
+    public List<Member> getMembers() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
