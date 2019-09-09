@@ -1,6 +1,6 @@
 <%@include file = "header.jsp" %>
 
-<script src="index.js"></script>
+<script src="js/index.js"></script>
 
 <div class="indexContainer">
 <h4>Members (loaded from a REST API)</h4>
