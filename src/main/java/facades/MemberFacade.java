@@ -1,22 +1,19 @@
 package facades;
 
-import entities.RenameMe;
-import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 /**
  *
  * Rename Class to a relevant name Add add relevant facade methods
  */
-public class FacadeMember {
+public class MemberFacade {
 
-    private static FacadeMember instance;
+    private static MemberFacade instance;
     private static EntityManagerFactory emf;
     
     //Private Constructor to ensure Singleton
-    private FacadeMember() {}
+    private MemberFacade() {}
     
     
     /**
@@ -24,10 +21,10 @@ public class FacadeMember {
      * @param _emf
      * @return an instance of this facade class.
      */
-    public static FacadeMember getFacadeExample(EntityManagerFactory _emf) {
+    public static MemberFacade getFacadeExample(EntityManagerFactory _emf) {
         if (instance == null) {
             emf = _emf;
-            instance = new FacadeMember();
+            instance = new MemberFacade();
         }
         return instance;
     }
