@@ -37,8 +37,7 @@
     <h1>Links</h1>
     <hr />
     <div class="links-list list-group mx-auto">
-        <a href="wwdt.jsp" class="list-group-item list-group-item-action">What we did together</a>
-        <a href="groupcontract.jsp" class="list-group-item list-group-item-action">Our group contract</a>
+        <a href="groupcontract.jsp" class="list-group-item list-group-item-action">Our group contract & What we did together</a>
         <a href="https://github.com/AndreasVikke/CPH-Business-CA-1" class="list-group-item list-group-item-action">Github Repo</a>
     </div>
 </div>
