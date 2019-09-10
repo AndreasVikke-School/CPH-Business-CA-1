@@ -18,12 +18,14 @@ public class ClassMemberDTO {
     private String name;
     private String studentId;
     private ColorEnum color;
+    private String link;
 
     public ClassMemberDTO(ClassMember member) {
         this.id = member.getId();
         this.name = member.getName();
         this.studentId = member.getStudentId();
         this.color = member.getColor();
+        this.link = member.getLink();
     }
 
     public Long getId() {

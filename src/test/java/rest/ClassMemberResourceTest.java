@@ -55,8 +55,8 @@ public class ClassMemberResourceTest {
         RestAssured.port = SERVER_PORT;
 
         RestAssured.defaultParser = Parser.JSON;
-        classMembers.add(new ClassMember("Martin Frederiksen", "cph-mf237", ColorEnum.RED));
-        classMembers.add(new ClassMember("Andreas Vikke", "cph-av105", ColorEnum.RED));
+        classMembers.add(new ClassMember("Martin Frederiksen", "cph-mf237", ColorEnum.RED, "#"));
+        classMembers.add(new ClassMember("Andreas Vikke", "cph-av105", ColorEnum.RED, "#"));
     }
 
     @AfterAll

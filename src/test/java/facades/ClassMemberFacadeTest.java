@@ -32,8 +32,8 @@ public class ClassMemberFacadeTest {
        emf = EMF_Creator.createEntityManagerFactory(DbSelector.TEST,Strategy.DROP_AND_CREATE);
        facade = ClassMemberFacade.getClassMemberFacade(emf);
        
-       classMembers.add(new ClassMember("Martin Frederiksen", "cph-mf237", ColorEnum.RED));
-       classMembers.add(new ClassMember("Andreas Vikke", "cph-av105", ColorEnum.RED));
+       classMembers.add(new ClassMember("Martin Frederiksen", "cph-mf237", ColorEnum.RED,  "#"));
+       classMembers.add(new ClassMember("Andreas Vikke", "cph-av105", ColorEnum.RED, "#"));
     }
 
     // Setup the DataBase in a known state BEFORE EACH TEST

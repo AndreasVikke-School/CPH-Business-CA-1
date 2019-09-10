@@ -23,14 +23,16 @@ public class ClassMember implements Serializable {
     private String name;
     private String studentId;
     private ColorEnum color;
+    private String link;
 
     public ClassMember() {
     }
 
-    public ClassMember(String name, String studentId, ColorEnum color) {
+    public ClassMember(String name, String studentId, ColorEnum color, String link) {
         this.name = name;
         this.studentId = studentId;
         this.color = color;
+        this.link = link;
     }
 
     public String getName() {
@@ -57,8 +59,14 @@ public class ClassMember implements Serializable {
         this.color = color;
     }
 
-    
-    
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+   
     public Long getId() {
         return id;
     }
