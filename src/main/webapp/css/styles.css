@@ -38,6 +38,19 @@ thead th {
     width: 50%;
 }
 
+.links-list {
+    width: 250px;
+}
+.links-list a {
+    text-align: center;
+    transition: all .4s ease-in-out;
+}
+.links-list a:hover {
+    background-color: #343a40 !important;
+    color: #fff;
+    transition: all .4s ease-in-out;
+}
+
 .row {
     text-align: center;
 }
