@@ -11,16 +11,13 @@ import java.util.Objects;
 
 /**
  *
- * @author Joe
+ * @author Martin
  */
 public class ClassMemberDTO {
     private long id;
     private String name;
     private String studentId;
     private ColorEnum color;
-
-    public ClassMemberDTO() {
-    }
 
     public ClassMemberDTO(ClassMember member) {
         this.id = member.getId();
