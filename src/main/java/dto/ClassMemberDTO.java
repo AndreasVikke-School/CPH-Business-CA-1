@@ -47,10 +47,11 @@ public class ClassMemberDTO {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 59 * hash + Objects.hashCode(this.id);
-        hash = 59 * hash + Objects.hashCode(this.name);
-        hash = 59 * hash + Objects.hashCode(this.studentId);
-        hash = 59 * hash + Objects.hashCode(this.color);
+        hash = 31 * hash + (int) (this.id ^ (this.id >>> 32));
+        hash = 31 * hash + Objects.hashCode(this.name);
+        hash = 31 * hash + Objects.hashCode(this.studentId);
+        hash = 31 * hash + Objects.hashCode(this.color);
+        hash = 31 * hash + Objects.hashCode(this.link);
         return hash;
     }
 
@@ -66,13 +67,16 @@ public class ClassMemberDTO {
             return false;
         }
         final ClassMemberDTO other = (ClassMemberDTO) obj;
+        if (this.id != other.id) {
+            return false;
+        }
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
         if (!Objects.equals(this.studentId, other.studentId)) {
             return false;
         }
-        if (!Objects.equals(this.id, other.id)) {
+        if (!Objects.equals(this.link, other.link)) {
             return false;
         }
         if (this.color != other.color) {
@@ -80,9 +84,5 @@ public class ClassMemberDTO {
         }
         return true;
     }
-    
-    
-
-    
-    
+ 
 }

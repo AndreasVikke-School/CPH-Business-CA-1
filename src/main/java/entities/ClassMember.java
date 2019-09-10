@@ -78,10 +78,11 @@ public class ClassMember implements Serializable {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 41 * hash + Objects.hashCode(this.id);
-        hash = 41 * hash + Objects.hashCode(this.name);
-        hash = 41 * hash + Objects.hashCode(this.studentId);
-        hash = 41 * hash + Objects.hashCode(this.color);
+        hash = 47 * hash + Objects.hashCode(this.id);
+        hash = 47 * hash + Objects.hashCode(this.name);
+        hash = 47 * hash + Objects.hashCode(this.studentId);
+        hash = 47 * hash + Objects.hashCode(this.color);
+        hash = 47 * hash + Objects.hashCode(this.link);
         return hash;
     }
 
@@ -101,6 +102,9 @@ public class ClassMember implements Serializable {
             return false;
         }
         if (!Objects.equals(this.studentId, other.studentId)) {
+            return false;
+        }
+        if (!Objects.equals(this.link, other.link)) {
             return false;
         }
         if (!Objects.equals(this.id, other.id)) {
