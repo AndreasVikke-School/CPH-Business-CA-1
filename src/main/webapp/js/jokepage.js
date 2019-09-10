@@ -48,7 +48,9 @@ const createTable = (a) => {
     }
 
     // Create new header for table and insert new row
-    var header = document.getElementById("table").createTHead().insertRow(0);
+    var header = document.getElementById("table").createTHead();
+    header.className += "table-dark";
+    var hrow = header.insertRow(0);;
 
     // Interate over all the keys of the first object in the array, and add a new cell with the name
     for(i = 0; i < Object.keys(single ? a : a[0]).length; i++) {
@@ -56,7 +58,7 @@ const createTable = (a) => {
         var name = Object.keys(single ? a : a[0])[i]
         cell.innerHTML = name[0].toUpperCase() + name.substring(1);
         cell.onclick = theadClick;
-        header.appendChild(cell);
+        hrow.appendChild(cell);
     }
 
     // Create new footer for table

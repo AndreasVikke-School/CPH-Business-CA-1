@@ -33,5 +33,14 @@ thead th {
     cursor: pointer;
 }
 
+#jokeid {
+    display: inline;
+    width: 50%;
+}
+
+.row {
+    text-align: center;
+}
+
 
 
