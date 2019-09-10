@@ -1,15 +1,16 @@
-window.onload = function() {
-    startFetch();
-
+window.onload = async() => {
+    var data = await startFetch("/CA-1/api/car/all");
+    document.getElementById("cars").innerHTML = "<thead class=table-dark><tr><th>Id</th><th>Year</th><th>Make</th><th>Model</th><th>Price</th></tr></thead>" + data.map(x => "<tr><td>" + x.id + "</td><td>" + x.year + "</td><td>" + x.make + "</td><td>" + x.model + "</td><td>" + x.price + "</td></tr>").join(" ");
 
 };
 
-function startFetch() {
-fetch("/CA-1/api/car/all")
-  .then(res => res.json())
-  .then(data => {
-      console.log(data)
-      document.getElementById("carsH").innerHTML = "<tr><th scope=col>Id</th><th scope=col>Year</th><th scope=col>Make</th><th scope=col>Model</th><th scope=col>Price</th></tr>";
-      document.getElementById("cars").innerHTML =  data.map(x => "<tr><td>" + x.id + "</td><td>" + x.year + "</td><td>" + x.make + "</td><td>" + x.model + "</td><td>" + x.price + "</td></tr>").join(" ");
-});
+var dataOut;
+
+const startFetch = async(url) => {
+    await fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                dataOut = data;
+            });
+            return dataOut;
 };
