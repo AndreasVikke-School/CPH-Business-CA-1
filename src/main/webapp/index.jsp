@@ -1,9 +1,10 @@
 <%@include file = "header.jsp" %>
 
-<script src="index.js"></script>
+<script src="js/index.js"></script>
 
-<div class="indexContainer">
-<h4>Members (loaded from a REST API)</h4>
+<div class="container-fluid">
+    <h1>Members (loaded from a REST API)</h1>
+    <div class="container">
 <table class="table">
   <thead class="table-dark">
     <tr>
@@ -25,7 +26,10 @@
       </tr>
   </tbody>
 </table>
+    <div class="reloadbtn">
 <button type="button" class="btn btn-dark" id="reload">Reload Names</button>
+</div>
+</div>
 </div>
 
 <%@include file = "footer.jsp" %>

@@ -8,6 +8,6 @@ function startFetch(url) {
 fetch(url)
   .then(res => res.json())
   .then(data => {
-      document.getElementById("tableData").innerHTML =  data.map(x => "<tr><td>" + x.name + "</td><td>" + x.studentId + "</td><td>" + x.color + "</td></tr>");
+      document.getElementById("tableData").innerHTML =  data.map(x => "<tr><td>" + x.name + "</td><td>" + x.studentId + "</td><td>" + x.color + "</td></tr>").join(" ");
 });
 };

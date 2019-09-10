@@ -21,6 +21,10 @@ footer {
     text-align: center;
 }
 
+.reloadbtn {
+    text-align: center;
+}
+
 .alert {
     display: none;
 }
@@ -30,9 +34,4 @@ thead th {
 }
 
 
-.indexContainer {
-    text-align: center;
-    width: 65%;
-    margin-left: auto;
-    margin-right: auto;
-}
+
