@@ -19,9 +19,6 @@ public class ClassMemberDTO {
     private String studentId;
     private ColorEnum color;
 
-    public ClassMemberDTO() {
-    }
-
     public ClassMemberDTO(ClassMember member) {
         this.id = member.getId();
         this.name = member.getName();

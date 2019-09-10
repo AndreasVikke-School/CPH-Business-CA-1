@@ -59,7 +59,7 @@ public class ClassMemberResource {
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public String getClassMembers() {
-        List<ClassMemberDTO> classMembers = FACADE.getMembers();
+        List<ClassMemberDTO> classMembers = FACADE.getClassMembers();
         return GSON.toJson(classMembers);
     }
     
@@ -67,7 +67,7 @@ public class ClassMemberResource {
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public String getJokeById(@PathParam("id") long id) {
-        ClassMemberDTO classMember = FACADE.getMember(id);
+        ClassMemberDTO classMember = FACADE.getClassMemberById(id);
         return GSON.toJson(classMember);
     }   
 }

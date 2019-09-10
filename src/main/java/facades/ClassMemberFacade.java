@@ -2,7 +2,6 @@ package facades;
 
 import dto.ClassMemberDTO;
 import entities.ClassMember;
-import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -38,11 +37,11 @@ public class ClassMemberFacade {
     }
     
 
-    public ClassMemberDTO getMember(long id) {
+    public ClassMemberDTO getClassMemberById(long id) {
         return new ClassMemberDTO(getEntityManager().find(ClassMember.class, id));
     }
 
-    public List<ClassMemberDTO> getMembers() {
+    public List<ClassMemberDTO> getClassMembers() {
         return getEntityManager().createQuery("SELECT new dto.ClassMemberDTO(cm) FROM ClassMember cm", ClassMemberDTO.class).getResultList();
     }
 

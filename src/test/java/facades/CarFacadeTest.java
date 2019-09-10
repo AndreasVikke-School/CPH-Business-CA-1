@@ -1,6 +1,8 @@
 package facades;
 
+import dto.CarDTO;
 import dto.ClassMemberDTO;
+import entities.Car;
 import entities.ColorEnum;
 import utils.EMF_Creator;
 import entities.ClassMember;
@@ -18,22 +20,25 @@ import utils.EMF_Creator.Strategy;
 
 //Uncomment the line below, to temporarily disable this test
 //@Disabled
-public class ClassMemberFacadeTest {
+public class CarFacadeTest {
 
     private static EntityManagerFactory emf;
-    private static ClassMemberFacade facade;
-    private static List<ClassMember> classMembers = new ArrayList();
+    private static CarFacade facade;
+    private static List<Car> cars = new ArrayList();
 
-    public ClassMemberFacadeTest() {
+    public CarFacadeTest() {
     }
     
     @BeforeAll
     public static void setUpClassV2() {
        emf = EMF_Creator.createEntityManagerFactory(DbSelector.TEST,Strategy.DROP_AND_CREATE);
-       facade = ClassMemberFacade.getClassMemberFacade(emf);
+       facade = CarFacade.getCarFacade(emf);
        
-       classMembers.add(new ClassMember("Martin Frederiksen", "cph-mf237", ColorEnum.RED));
-       classMembers.add(new ClassMember("Andreas Vikke", "cph-av105", ColorEnum.RED));
+       cars.add(new Car(1992, "Ford", "E350", 3000, "Martin Frederiksen", 20000));
+        cars.add(new Car(1999, "Chevy", "Venture", 4900, "Andreas Vikke", 120000));
+        cars.add(new Car(2000, "Chevy", "Venture", 5000, "Martin Frederiksen", 1000));
+        cars.add(new Car(1996, "Jeep", "Grand Cherokee", 4799, "Andreas Vikke", 100000));
+        cars.add(new Car(2005, "Volvo", "V70", 44799, "Martin Frederiksen", 200000));
     }
 
     // Setup the DataBase in a known state BEFORE EACH TEST
@@ -43,9 +48,9 @@ public class ClassMemberFacadeTest {
         EntityManager em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
-            em.createNamedQuery("ClassMember.deleteAllRows").executeUpdate();
-            for(ClassMember m : classMembers)
-                em.persist(m);
+            em.createNamedQuery("Car.deleteAllRows").executeUpdate();
+            for(Car c : cars)
+                em.persist(c);
 
             em.getTransaction().commit();
         } finally {
@@ -53,16 +58,16 @@ public class ClassMemberFacadeTest {
         }
     }
     @Test
-    public void testGetClassMember() {
-        assertEquals(new ClassMemberDTO(classMembers.get(0)).getName(), facade.getClassMemberById(1L).getName());
+    public void testGetCarById() {
+        assertEquals(new CarDTO(cars.get(0)).getOwner(), facade.getCarById(1L).getOwner());
     }
     
     @Test
-    public void testGetClassMembers(){
-        List<ClassMemberDTO> membersDTO = new ArrayList();
-        for(ClassMember m : classMembers) {
-            membersDTO.add(new ClassMemberDTO(m));
+    public void testGetCars(){
+        List<CarDTO> carsDTO = new ArrayList();
+        for(Car c : cars) {
+            carsDTO.add(new CarDTO(c));
         }
-        assertTrue(facade.getClassMembers().equals(membersDTO));
+        assertTrue(facade.getCars().equals(carsDTO));
     }
 }
