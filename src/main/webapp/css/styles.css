@@ -16,7 +16,9 @@ footer {
     overflow: hidden;
     text-align: center;
 }
-
+.container-fluid  {
+    margin-bottom: 7rem;
+}
 .container-fluid h1 {
     text-align: center;
 }
