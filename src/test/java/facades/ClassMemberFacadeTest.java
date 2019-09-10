@@ -54,7 +54,7 @@ public class ClassMemberFacadeTest {
     }
     @Test
     public void testGetClassMember() {
-        assertEquals(new ClassMemberDTO(classMembers.get(0)).getName(), facade.getClassMemberById(1L).getName());
+        assertEquals(new ClassMemberDTO(classMembers.get(0)).getName(), facade.getClassMemberById(classMembers.get(0).getId()).getName());
     }
     
     @Test

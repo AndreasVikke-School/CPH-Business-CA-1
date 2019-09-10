@@ -1,11 +1,8 @@
 package facades;
 
 import dto.CarDTO;
-import dto.ClassMemberDTO;
 import entities.Car;
-import entities.ColorEnum;
 import utils.EMF_Creator;
-import entities.ClassMember;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -59,7 +56,7 @@ public class CarFacadeTest {
     }
     @Test
     public void testGetCarById() {
-        assertEquals(new CarDTO(cars.get(0)).getOwner(), facade.getCarById(1L).getOwner());
+        assertEquals(new CarDTO(cars.get(0)).getOwner(), facade.getCarById(cars.get(0).getId()).getOwner());
     }
     
     @Test

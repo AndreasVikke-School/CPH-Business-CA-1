@@ -11,7 +11,7 @@ import java.util.Objects;
 
 /**
  *
- * @author Joe
+ * @author Martin
  */
 public class ClassMemberDTO {
     private long id;

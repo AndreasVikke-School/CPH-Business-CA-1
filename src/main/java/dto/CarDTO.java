@@ -10,7 +10,7 @@ import java.util.Objects;
 
 /**
  *
- * @author Joe
+ * @author Martin
  */
 public class CarDTO {
     private Long id;
