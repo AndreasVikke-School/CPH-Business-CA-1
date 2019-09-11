@@ -1,7 +1,7 @@
 window.onload = async() => {
     var data = await startFetch("/CA-1/api/car/all");
-    document.getElementById("cars").innerHTML = "<thead class=table-dark><tr><th onclick = theadClick()>Id</th><th onclick = theadClick()>Year</th><th onclick = theadClick()>Make</th><th onclick = theadClick()>Model</th><th onclick = theadClick()>Price</th></tr></thead>" + data.map(x => "<tr><td>" + x.id + "</td><td>" + x.year + "</td><td>" + x.make + "</td><td>" + x.model + "</td><td>" + x.price + "</td></tr>").join(" ");
-
+    document.getElementById("cars").innerHTML = "<thead class=table-dark><tr><th>Id</th><th>Year</th><th>Make</th><th>Model</th><th>Price</th></tr></thead>" + data.map(x => "<tr><td>" + x.id + "</td><td>" + x.year + "</td><td>" + x.make + "</td><td>" + x.model + "</td><td>" + x.price + "</td></tr>").join(" ");
+    document.getElementsByTagName("th").onclick = theadClick();
     
     document.getElementById("carAll").onclick = async() => {
         var data = await startFetch("/CA-1/api/car/all");
@@ -28,7 +28,7 @@ window.onload = async() => {
 };
 
 function theadClick() {
-    var field = this.toLowerCase();
+    var field = this.innerHTML.toLowerCase();
     if(typeof dataout[0][field] === "number")
         dataout.sort(sort_by(field, parseInt));
     else
