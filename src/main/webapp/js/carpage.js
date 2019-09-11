@@ -1,13 +1,13 @@
 window.onload = async() => {
     var data = await startFetch("/CA-1/api/car/all");
-    document.getElementById("cars").innerHTML = "<thead class=table-dark><tr><th>Id</th><th>Year</th><th>Make</th><th>Model</th><th>Price</th></tr></thead>" + data.map(x => "<tr><td>" + x.id + "</td><td>" + x.year + "</td><td>" + x.make + "</td><td>" + x.model + "</td><td>" + x.price + "</td></tr>").join(" ");
-    document.getElementsByTagName("th").onclick = theadClick();
+    createTable(data);
     
     document.getElementById("carAll").onclick = async() => {
         var data = await startFetch("/CA-1/api/car/all");
         var alert = document.getElementById("alert");
         alert.style.display = "none";  
-        document.getElementById("cars").innerHTML = "<thead class=table-dark><tr><th>Id</th><th>Year</th><th>Make</th><th>Model</th><th>Price</th></tr></thead>" + data.map(x => "<tr><td>" + x.id + "</td><td>" + x.year + "</td><td>" + x.make + "</td><td>" + x.model + "</td><td>" + x.price + "</td></tr>").join(" ");
+        createTable(data);
+        //document.getElementById("cars").innerHTML = "<thead class=table-dark><tr><th>Id</th><th>Year</th><th>Make</th><th>Model</th><th>Price</th></tr></thead>" + data.map(x => "<tr><td>" + x.id + "</td><td>" + x.year + "</td><td>" + x.make + "</td><td>" + x.model + "</td><td>" + x.price + "</td></tr>").join(" ");
     };
 
 
@@ -21,20 +21,27 @@ window.onload = async() => {
             alert.style.display = "block";
         }
 
-
-        document.getElementById("cars").innerHTML = "<thead class=table-dark><tr><th>Id</th><th>Year</th><th>Make</th><th>Model</th><th>Price</th></tr></thead>" + data.map(x => "<tr><td>" + x.id + "</td><td>" + x.year + "</td><td>" + x.make + "</td><td>" + x.model + "</td><td>" + x.price + "</td></tr>").join(" ");
+        createTable(data);
+        //document.getElementById("cars").innerHTML = "<thead class=table-dark><tr><th>Id</th><th>Year</th><th>Make</th><th>Model</th><th>Price</th></tr></thead>" + data.map(x => "<tr><td>" + x.id + "</td><td>" + x.year + "</td><td>" + x.make + "</td><td>" + x.model + "</td><td>" + x.price + "</td></tr>").join(" ");
     };
 
 };
 
-function theadClick() {
-    var field = this.innerHTML.toLowerCase();
+const createTable = async(data) => {
+    document.getElementById("cars").innerHTML = "<thead class=table-dark><tr><th>Id</th><th>Year</th><th>Make</th><th>Model</th><th>Price</th></tr></thead>" + data.map(x => "<tr><td>" + x.id + "</td><td>" + x.year + "</td><td>" + x.make + "</td><td>" + x.model + "</td><td>" + x.price + "</td></tr>").join(" ");
+    document.getElementsByTagName("tr")[0].onclick = function() {
+        theadClick();
+    }
+}
+
+const theadClick = () => {
+    var field = this.event.target.innerHTML.toLowerCase();
     if(typeof dataout[0][field] === "number")
         dataout.sort(sort_by(field, parseInt));
     else
         dataout.sort(sort_by(field, function(a){return a.toUpperCase()}));
-    console.log(dataOut);
-    document.getElementById("cars").innerHTML = "<thead class=table-dark><tr><th>Id</th><th>Year</th><th>Make</th><th>Model</th><th>Price</th></tr></thead>" + dataOut.map(x => "<tr><td>" + x.id + "</td><td>" + x.year + "</td><td>" + x.make + "</td><td>" + x.model + "</td><td>" + x.price + "</td></tr>").join(" ");
+    createTable(data);
+    //document.getElementById("cars").innerHTML = "<thead class=table-dark><tr><th>Id</th><th>Year</th><th>Make</th><th>Model</th><th>Price</th></tr></thead>" + dataOut.map(x => "<tr><td>" + x.id + "</td><td>" + x.year + "</td><td>" + x.make + "</td><td>" + x.model + "</td><td>" + x.price + "</td></tr>").join(" ");
 }
 
 var sort_by = function(field, primer){
