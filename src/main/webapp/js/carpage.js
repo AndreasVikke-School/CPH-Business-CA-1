@@ -36,11 +36,11 @@ const createTable = async(data) => {
 
 const theadClick = () => {
     var field = this.event.target.innerHTML.toLowerCase();
-    if(typeof dataout[0][field] === "number")
-        dataout.sort(sort_by(field, parseInt));
+    if(typeof dataOut[0][field] === "number")
+        dataOut.sort(sort_by(field, parseInt));
     else
-        dataout.sort(sort_by(field, function(a){return a.toUpperCase()}));
-    createTable(data);
+        dataOut.sort(sort_by(field, function(a){return a.toUpperCase()}));
+    createTable(dataOut);
     //document.getElementById("cars").innerHTML = "<thead class=table-dark><tr><th>Id</th><th>Year</th><th>Make</th><th>Model</th><th>Price</th></tr></thead>" + dataOut.map(x => "<tr><td>" + x.id + "</td><td>" + x.year + "</td><td>" + x.make + "</td><td>" + x.model + "</td><td>" + x.price + "</td></tr>").join(" ");
 }
 
