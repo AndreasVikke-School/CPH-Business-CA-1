@@ -35,7 +35,7 @@ thead th {
     cursor: pointer;
 }
 
-#jokeid {
+.label {
     display: inline;
     width: 50%;
 }

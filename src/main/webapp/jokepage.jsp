@@ -10,7 +10,7 @@
     <form id="fetchJoke" class="container">
         <div class="row">
             <div class="col-sm">
-                <input type="number" class="form-control" id="jokeid" placeholder="Joke id">
+                <input type="number" class="label" id="jokeid" placeholder="Joke id">
                 <button id="fetchJokeBtn" class="btn btn-dark">Fetch</button>
                 <span id="buttonGroup">
                     <button endpoint="all" id="fetchAllJokesBtn" type="button" class="btn btn-dark">All</button>
