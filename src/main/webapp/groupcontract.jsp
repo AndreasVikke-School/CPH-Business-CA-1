@@ -2,15 +2,15 @@
 
 <div class="container-fluid">
     <hr />
-    <h1>Our group contract</h1>
+    <h1>Our group contract & What we did together</h1>
     <hr />
 
     <ul class="container list-group list-group-flush">
         <h2>Contract List</h2>
-        <li class="list-group-item">Master build skal begge parter vÃ¦re involveret.</li>
-        <li class="list-group-item">Inden man pusher op til dev skal alle tests vre krt og godkendt(grÃ¸nne).</li>
-        <li class="list-group-item">Vi arbejder igennemsnit 8 timer dagligt hvoraf 6 timer er program-
-            mering og den resterende tid er jounal skrivning, samt diskussion
+        <li class="list-group-item">Master build skal begge parter være involveret.</li>
+        <li class="list-group-item">Inden man pusher op til dev skal alle tests være kørt og godkendt(grønne).</li>
+        <li class="list-group-item">Vi arbejder igennemsnit 8 timer dagligt hvoraf 6 timer er programmering 
+            og den resterende tid er jounal skrivning, samt diskussion
             om diverse problemstillinger.</li>
         <li class="list-group-item">Hvis muligt en daglig commit/push til master.</li>
     </ul>
@@ -22,8 +22,8 @@
                 <h5 class="mb-1">Mandag 09/09-19</h5>
                 <small>100%</small>
                 </div>
-                <p class="mb-1">Martin: Begynder pÃ¥ index.html samt header til links.</p>
-                <p class="mb-1">Andreas: Begynder pÃ¥ tests til The â€Our Cool Jokesâ€ Page.</p>
+                <p class="mb-1">Martin: Begynder på index.html samt header til links.</p>
+                <p class="mb-1">Andreas: Begynder på tests til The "Our Cool Jokes" Page.</p>
             </li>
             <li class="list-group-item">
                 <div class="d-flex w-100 justify-content-between">
@@ -31,7 +31,7 @@
                 <small>100%</small>
                 </div>
                 <p class="mb-1">Martin: (Resten) Our Cars for Sale page.</p>
-                <p class="mb-1">Andreas: (Resten) Droplet database & Who did What and our Group Contract page.</p>
+                <p class="mb-1">Andreas: (Resten) Dropletdatabase & Who did What and our Group Contract page.</p>
             </li>
         </ul>
 </div>
