@@ -42,9 +42,10 @@ public class ClassMemberResource {
     public String setupDatabase() {
         EntityManager em = EMF.createEntityManager();
         List<ClassMember> ClassMembers = new ArrayList();
-        ClassMembers.add(new ClassMember("Martin Frederiksen", "cph-mf237", ColorEnum.RED, "martinfrederiken.jsp"));
+        ClassMembers.add(new ClassMember("Martin Frederiksen", "cph-mf237", ColorEnum.RED, "martinfrederiksen.jsp"));
         ClassMembers.add(new ClassMember("Andreas Vikke", "cph-av105", ColorEnum.RED, "andreasvikke.jsp"));
-        
+        ClassMembers.add(new ClassMember("Asger Sørensen", "cph-as466", ColorEnum.RED, "asgersorensen.jsp"));
+        ClassMembers.add(new ClassMember("William Huusfeldt", "cph-wh106", ColorEnum.RED, "williamhuusfeldt.jsp"));
         
         em.getTransaction().begin();
         for(ClassMember cm : ClassMembers)

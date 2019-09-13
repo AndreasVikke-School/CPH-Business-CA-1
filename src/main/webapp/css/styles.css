@@ -57,5 +57,10 @@ thead th {
     text-align: center;
 }
 
+.contracts{
+    text-align: center;
+}
 
-
+.links-list {
+    display: inline-block;
+}

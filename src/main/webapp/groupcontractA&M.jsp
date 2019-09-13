@@ -33,6 +33,30 @@
                 <p class="mb-1">Martin: (Resten) Our Cars for Sale page.</p>
                 <p class="mb-1">Andreas: (Resten) Dropletdatabase & Who did What and our Group Contract page.</p>
             </li>
+            <li class="list-group-item">
+                <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Onsdag 11/09-19</h5>
+                <small>100%</small>
+                </div>
+                <p class="mb-1">Martin: Finpudsning af opgaven.</p>
+                <p class="mb-1">Andreas: Finpudsning af opgaven.</p>
+            </li>
+            <li class="list-group-item">
+                <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Torsdag 12/09-19</h5>
+                <small>100%</small>
+                </div>
+                <p class="mb-1">Martin: Leger lidt opgaven i forsøg på at finde bedre løsninger.</p>
+                <p class="mb-1">Andreas: Leger lidt opgaven i forsøg på at finde bedre løsninger.</p>
+            </li>
+            <li class="list-group-item">
+                <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Fredag 13/09-19</h5>
+                <small>100%</small>
+                </div>
+                <p class="mb-1">Martin: Snakker med den anden del af gruppen og får afleveret opgaven.</p>
+                <p class="mb-1">Andreas: Snakker med den anden del af gruppen og får afleveret opgaven.</p>
+            </li>
         </ul>
 </div>
 
